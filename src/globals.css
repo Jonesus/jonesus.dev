@@ -1,0 +1,160 @@
+/* ------------------------------------------------------------------------ */
+/* CSS reset adapted from https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* ------------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+ul {
+    padding-inline-start: 1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* -------------------- */
+/* Typographical styles */
+/* -------------------- */
+
+@font-face {
+    font-family: 'atkinson';
+    src: url('/fonts/atkinsonhyperlegible-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'atkinson';
+    src: url('/fonts/atkinsonhyperlegible-bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'atkinson';
+    src: url('/fonts/atkinsonhyperlegible-italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'atkinson';
+    src: url('/fonts/atkinsonhyperlegible-bolditalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+body {
+    font-family: 'atkinson';
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    font-size: 1.25rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+article {
+    width: 70ch;
+}
+
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background-color: var(--code-background-color);
+    padding-inline: 0.25em;
+    padding-block: 0.1em;
+}
+
+/* -------------- */
+/* General layout */
+/* -------------- */
+
+body {
+    padding: var(--body-padding)
+}
+
+article p+p {
+    margin-top: 1em;
+}
+
+/* ------------- */
+/* Common styles */
+/* ------------- */
+
+:root {
+    --background-color: #f7f6f5;
+    --code-background-color: #dedad9;
+    --text-color: #181c23;
+
+    --body-padding: 3rem;
+}
+
+html {
+    background: var(--background-color);
+    color: var(--text-color);
+}
