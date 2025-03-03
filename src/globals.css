@@ -19,7 +19,6 @@ html {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    height: 100%;
 }
 
 img,
@@ -29,6 +28,7 @@ canvas,
 svg {
     display: block;
     max-width: 100%;
+    height: auto;
 }
 
 input,
@@ -102,7 +102,8 @@ h6 {
     overflow-wrap: break-word;
 }
 
-p {
+p,
+li {
     font-size: 1.25rem;
 }
 
@@ -119,8 +120,30 @@ h1 {
     font-size: 4rem;
 }
 
+h2 {
+    margin-block-start: 0.5em;
+}
+
 article {
     width: 70ch;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+img+figcaption {
+    margin-block-start: 0.5em;
+}
+
+figcaption {
+    font-style: italic;
+    text-align: center;
+    text-wrap-style: balance;
+}
+
+li {
+    padding-inline-start: 0.5em;
 }
 
 code {
@@ -136,10 +159,6 @@ code {
 
 body {
     padding: var(--body-padding)
-}
-
-article p+p {
-    margin-top: 1em;
 }
 
 /* ------------- */

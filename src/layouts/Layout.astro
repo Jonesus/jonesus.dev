@@ -4,36 +4,36 @@ import "~src/globals.css";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>jonesus.dev</title>
-	</head>
-	<body>
-		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/projects">Projects</a></li>
-				<li><a href="/blog">Blog</a></li>
-			</ul>
-		</nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>jonesus.dev</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        </nav>
 
-		<main>
-			<slot />
-		</main>
-	</body>
+        <main>
+            <slot />
+        </main>
+    </body>
 </html>
 
 <style>
-	ul {
-		padding-inline-start: 0;
-		display: flex;
-		gap: 1em;
-	}
+    ul {
+        padding-inline-start: 0;
+        display: flex;
+        gap: 1em;
+    }
 
-	li {
-		list-style: none;
-	}
+    li {
+        list-style: none;
+    }
 </style>

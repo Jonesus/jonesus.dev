@@ -17,5 +17,17 @@ issue, and in 2017 I wanted to try my hands at the technical implementation.
 As this was practically my first foray into web development, the chosen stack
 was quite basic; HTML, CSS and JS. A simple website with content dynamically
 hidden and shown based on [jQuery](https://jquery.com/) callbacks on `<a>` tags,
+considered by few to be the peak of SPA accessibility.
 
-- interactivity with embedded rpgmaker games and timelapses
+In addition to the written contents, one of the main attractions was a timelapse
+of our guild room, which was gathered from a web cam over a month's time.
+Gathering the data was simple, as the individual screenshots were already stored
+on a Linux server, so they just needed to be copied before they were rotated.
+However, figuring out how to use [FFmpeg](https://www.ffmpeg.org/) to render a
+huge folder of images into a video that could be reasonably embedded to a
+website was a nice challenge.
+
+Another challenge was posed from figuring out how to embed a game made with
+[RPG Maker](https://en.wikipedia.org/wiki/RPG_Maker) into the website. It turned
+out that RPG Maker's support for HTML5 exports was really all that is needed,
+and just having it lazily load was good enough for our purposes.

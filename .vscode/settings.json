@@ -27,5 +27,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.wordWrapColumn": 80,
         "editor.wordWrap": "bounded"
+    },
+    "markdownlint.config": {
+        "MD007": { "indent": 4 }
     }
 }

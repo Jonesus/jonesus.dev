@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.2.3"
+    "astro": "5.2.3",
+    "rehype-figure-title": "^1.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "8.22.0",
