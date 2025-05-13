@@ -1,15 +1,17 @@
 ---
 import "~src/globals.css";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:name="root" transition:animate="none">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>jonesus.dev</title>
+        <ClientRouter />
     </head>
     <body>
         <nav>
@@ -19,6 +21,8 @@ import "~src/globals.css";
                 <li><a href="/blog">Blog</a></li>
             </ul>
         </nav>
+
+        <hr />
 
         <main>
             <slot />
@@ -30,10 +34,11 @@ import "~src/globals.css";
     ul {
         padding-inline-start: 0;
         display: flex;
-        gap: 1em;
+        gap: 2em;
     }
 
     li {
         list-style: none;
+        padding-inline-start: unset;
     }
 </style>

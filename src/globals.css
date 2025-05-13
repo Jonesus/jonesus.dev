@@ -125,7 +125,6 @@ h2 {
 }
 
 article {
-    width: 70ch;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -153,13 +152,28 @@ code {
     padding-block: 0.1em;
 }
 
+hr {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--text-color);
+}
+
 /* -------------- */
 /* General layout */
 /* -------------- */
 
 body {
-    padding: var(--body-padding)
+    padding-block: var(--body-padding);
+    display: grid;
+    grid-template-columns:
+        minmax(var(--body-padding), 1fr) minmax(auto, 70ch) minmax(var(--body-padding), 1fr);
+    gap: var(--body-gap);
 }
+
+body>* {
+    grid-column: 2;
+}
+
 
 /* ------------- */
 /* Common styles */
@@ -171,9 +185,17 @@ body {
     --text-color: #181c23;
 
     --body-padding: 3rem;
+    --body-gap: 3rem;
+}
+
+@media (width <=600px) {
+    :root {
+        --body-padding: 1rem;
+    }
 }
 
 html {
     background: var(--background-color);
     color: var(--text-color);
+    scrollbar-gutter: stable;
 }

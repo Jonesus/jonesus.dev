@@ -1,31 +1,12 @@
 ---
 title: Prodeko Community
 startYear: 2021
+cover: screenshot.png
+coverAlt:
+    Front page of Prodeko Community website, with a logo banner and highlighted
+    videos visible.
+githubLink: https://github.com/Prodeko/prodeko-community
 ---
-
-- requirements
-
-    - seminar platform
-    - text, embedded audio, embedded video
-    - non-technical administration
-    - login integration with existing oauth
-    - internationalization
-    - content search
-    - tight schedule & budget
-
-- implementation
-
-    - initial design with figma
-    - nextjs frontend, directus backend
-    - deployment on vm with docker & ansible
-    - search with meili
-    - embeds from spotify & youtube
-    - login wih prodeko oauth
-    - comments and replies
-    - reactions with flourish
-
-- learnings
-    - full project management
 
 In the spring of 2021, a friend of mine was volunteering for the annual ball
 committee of [Aalto University's](https://www.aalto.fi/) Industrial Engineering
@@ -84,6 +65,65 @@ refining, based on comments received, I started the proper development.
 
 As the schedule and budget for the project were really tight, there was no way
 of creating everything from scratch (without even considering the infeasibility
-anyways).
+anyways). It was therefore essential to try to utilize as many open-source
+building blocks as possible.
+
+Starting with the largest component, the Content Management System (CMS), the
+main contenders were [Strapi](https://strapi.io/) and
+[Directus](https://directus.io/) due to their great customizability. Both seemed
+to enjoy wide popularity and support a wide variety of features out of the box,
+but the deciding factor was Directus' better support for internationalization,
+with the added bonus of philosophical purity for the CMS to actually store your
+data in sane tables with the potential of ejecting the data whenever, whereas
+Strapi is not schema-agnostic and requires specific table layouts to work.
+
+For implementing the full-text search, I initially attempted to use
+[Elasticsearch](https://www.elastic.co/elasticsearch), as it seemed to be the
+industry standard tool. However, the documentation proved to be quite obtuse and
+the solution itself quite heavyweight for such a small site, so after
+considering other options I ended up using
+[MeiliSearch](https://www.meilisearch.com/). Again, using
+[Directus' extensions](https://directus.io/docs/guides/extensions/overview), a
+small hook script was sufficient for syncing the CMS' contents into the search
+index. In addition, the extension system provided a great way for integrating
+the existing guild authentication.
+
+The only thing Directus was really missing in my opinion were automatic schema
+and data migrations that could be versioned alongside code. The value of schema
+migrations should be self-evident, and in Directus' case where quite a few
+configurations are stored in the database (such as editor UI layouts and content
+permissions), so being able to version those without manually writing SQL
+migrations would've been helpful. There has been
+[quite a lot of discussion on this on Github](https://github.com/directus/directus/discussions/3891)
+and apparently schema migrations now exist natively, but it seems that data
+migrations are still missing.
+
+For the frontend, [Next.js](https://nextjs.org/) seemed like the obvious choice
+due to the mostly static nature of the website, with easy support for dynamism
+when needed. Creating the frontend was quite uneventful; following the
+self-drawn design and having thought out what components made sense in Figma
+already made the process a breeze. The most complex feature was handling
+localized URLs (e.g. `/blog/hello-world` for english and `/blogi/hei-maailma`
+for finnish), and I wasn't entirely happy with how the only way to accomplish
+this in Next.js seemed to be semi-custom route handling with a catch-all route,
+but an ugly working solution is better than a beautiful theoretical one.
+Completing the UI well within schedule, I put in the extra effort to add some
+flourish for the users that would "like" a submission on the site.
 
 ![Animated gif of a user pressing the "rainbow-like" button, after which the initially grayscale rainbow emoji bursts outwards with colorful sparks and the rainbow itself gains its colors.](rainbow-like.webp "The only thing more satisfying than programming these micro-interactions is using them afterwards :)")
+
+## Completion
+
+As the project neared completion, I started working on the deployment of the
+components. Prodeko was already running their infrastructure on virtual machines
+(VMs) and Docker containers, so I wrote scripts that could be run to easily
+deploy and update the project on the VMs. We deployed the site, and the client
+started adding blog posts, videos and podcasts to the site. I wrote
+documentation for maintaining the code and contents to the best of my abilities,
+and after the clients reviewed them we considered the project completed.
+
+It seemed to me that the client was well satisfied with the results, and I was
+glad to have been able to complete everything within the agreed schedule. I
+learned a great deal about how to manage such a project when working mostly solo
+and how to communicate with stakeholders before, during and after a project. I
+also got to challenge myself with novel technologies, which is always a plus :)
