@@ -1,12 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+
 import BaseLayout from "~src/layouts/BaseLayout.astro";
+import { groupBy } from "~src/utils";
 
 const projects = await getCollection("projects");
 const projectsData = projects.filter((p) => !!p.data.cover);
 const projectsByYear = Object.entries(
-    Object.groupBy(projectsData, (p) => p.data.startYear)
+    groupBy(projectsData, (p) => p.data.startYear),
 );
 ---
 
