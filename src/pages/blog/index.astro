@@ -1,11 +1,15 @@
 ---
-import {getCollection} from "astro:content";
-import Layout from "~src/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
 const posts = await getCollection("blog");
 ---
 
-<Layout>
+<BaseLayout favicon="📝">
     <h1>Blog</h1>
+    <p>
+        I have things that I've been planning to write about. Let's hope I
+        actually will!
+    </p>
     <ul>
         {
             posts.map((post) => (
@@ -15,4 +19,14 @@ const posts = await getCollection("blog");
             ))
         }
     </ul>
-</Layout>
+</BaseLayout>
+
+<style>
+    h1 {
+        margin-block-end: 1rem;
+    }
+
+    h1 + p {
+        margin-block-end: 3rem;
+    }
+</style>

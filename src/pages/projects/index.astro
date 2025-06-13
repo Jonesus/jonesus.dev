@@ -1,18 +1,156 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import Layout from "~src/layouts/Layout.astro";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
+
 const projects = await getCollection("projects");
+const projectsData = projects.filter((p) => !!p.data.cover);
+const projectsByYear = Object.entries(
+    Object.groupBy(projectsData, (p) => p.data.startYear)
+);
 ---
 
-<Layout>
+<BaseLayout title="Projects" favicon="🪚">
     <h1>Projects</h1>
-    <ul>
-        {
-            projects.map((project) => (
-                <li>
-                    <a href={`/projects/${project.id}`}>{project.data.title}</a>
-                </li>
+    <p>
+        Here is a selection of projects I've worked on in the past. For a more
+        complete list, you can take a look at my <a
+            href="https://github.com/Jonesus"
+        >
+            GitHub.
+        </a>
+    </p>
+    {
+        projectsByYear
+            .sort(([a, _a], [b, _b]) => Number(b) - Number(a))
+            .map(([year, projects]) => (
+                <section>
+                    <h2>{year}</h2>
+                    <hr />
+                    <ul>
+                        {projects?.map((project, i) => (
+                            <li>
+                                <a href={`/projects/${project.id}`}>
+                                    <h3>{project.data.title}</h3>
+                                    <p>{project.data.description}</p>
+                                    {project.data.cover ? (
+                                        <Image
+                                            src={project.data.cover}
+                                            alt={project.data.coverAlt}
+                                            loading={i < 3 ? "eager" : "lazy"}
+                                        />
+                                    ) : null}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
             ))
+    }
+</BaseLayout>
+
+<style>
+    h1 {
+        margin-block-end: 1rem;
+    }
+
+    h1 + p {
+        margin-block-end: 3rem;
+    }
+
+    section {
+        --timeline-gap: max(var(--body-gap), 1rem);
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        grid-template-areas: "year timeline content";
+        gap: var(--timeline-gap);
+    }
+    section + section {
+        padding-block-start: calc(3 * var(--timeline-gap));
+    }
+    section + section hr {
+        margin-block-start: calc(0px - 3 * var(--timeline-gap));
+    }
+    section:first-of-type hr {
+        margin-block-start: 1em;
+    }
+
+    h2 {
+        grid-area: year;
+        font-family: "atkinson-mono";
+        font-size: 2.5rem;
+        line-height: 1;
+        margin-top: -0.25rem;
+    }
+
+    hr {
+        grid-area: timeline;
+        width: var(--line-width);
+        height: unset;
+    }
+
+    ul {
+        grid-area: content;
+        padding-left: unset;
+    }
+    li {
+        padding-left: unset;
+        list-style: none;
+    }
+    li + li {
+        margin-top: 3rem;
+    }
+
+    section a {
+        text-decoration: unset;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    section a p {
+        color: var(--text-color);
+    }
+    section a h3 {
+        text-decoration: underline;
+    }
+    h3 {
+        font-size: 2rem;
+        line-height: 0.8;
+        position: relative;
+    }
+    h3:after {
+        --size: 0.6em;
+        content: "";
+        position: absolute;
+        width: var(--size);
+        height: var(--size);
+        left: calc(
+            0px - var(--timeline-gap) - var(--size) / 2 - var(--line-width) / 2
+        );
+        top: 50%;
+        transform: translateY(calc(-50% + 0.1em));
+
+        border-radius: 999px;
+        border: var(--line-width) solid var(--text-color);
+        border-width: 2px;
+        background-color: var(--background-color);
+    }
+
+    p {
+        line-height: 1.2;
+    }
+
+    @media (width <=600px) {
+        section {
+            grid-template-areas:
+                "timeline year"
+                "timeline content";
         }
-    </ul>
-</Layout>
+        section:first-of-type hr {
+            margin-block-start: 0em;
+        }
+        h3:after {
+            --size: 0.5em;
+        }
+    }
+</style>

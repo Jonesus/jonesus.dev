@@ -1,0 +1,108 @@
+---
+import "~src/globals.css";
+import { ClientRouter } from "astro:transitions";
+import { Image } from "astro:assets";
+
+import github from "~src/assets/logos/github.svg";
+import linkedin from "~src/assets/logos/linkedin.svg";
+
+interface Props {
+    title?: string | undefined;
+    favicon?: string | undefined;
+}
+
+const { favicon = "🧑‍💻", title } = Astro.props;
+const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
+---
+
+<!doctype html>
+<html lang="en" transition:name="root" transition:animate="none">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link
+            rel="icon"
+            href=`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>${favicon}</text></svg>`
+        />
+        <meta name="generator" content={Astro.generator} />
+        <title>{fullTitle}</title>
+        <ClientRouter />
+    </head>
+    <body>
+        <nav>
+            <a href="/" aria-label="home">jonesus.dev</a>
+            <ul>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        </nav>
+
+        <hr />
+
+        <main>
+            <slot />
+        </main>
+
+        <hr />
+
+        <footer>
+            <a href="https://github.com/Jonesus" aria-label="My GitHub profile">
+                <Image src={github} alt="" width="32" height="32" />
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/joonas-palosuo/"
+                aria-label="My LinkedIn profile"
+            >
+                <Image src={linkedin} alt="" width="32" height="32" />
+            </a>
+
+            <p><em>Cookies are for monsters</em></p>
+        </footer>
+    </body>
+</html>
+
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav > a {
+        margin-right: 1em;
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: unset;
+        text-decoration: unset;
+    }
+    nav > a:hover {
+        text-decoration: underline;
+    }
+
+    ul {
+        padding-inline-start: 0;
+        display: flex;
+        gap: 2em;
+    }
+    li {
+        list-style: none;
+        padding-inline-start: unset;
+    }
+
+    footer {
+        display: flex;
+        gap: 2em;
+    }
+    footer a img {
+        border: none;
+    }
+    footer p {
+        margin-left: auto;
+    }
+
+    @media (width <=600px) {
+        ul {
+            gap: 1em;
+        }
+    }
+</style>

@@ -1,7 +1,9 @@
 ---
-layout: ~src/layouts/Article.astro
+layout: ~src/layouts/Home.astro
 title: jonesus.dev
 ---
+
+# Hello!
 
 Welcome to my website! I'm Joonas, M.Sc. in Computer Science, majoring in
 Human-Computer Interaction from [Aalto University](https://www.aalto.fi/en). I'm

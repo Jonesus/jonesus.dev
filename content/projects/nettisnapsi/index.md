@@ -1,11 +1,13 @@
 ---
 title: NettiS'napsi
+description: Online issue of Inkubio's student magazine, S'napsi
 startYear: 2017
 cover: "./screenshot.png"
 coverAlt:
     Screenshot of Nettisnapsi 2017 showing the list of articles with an animated
     timelapse background
 githubLink: https://github.com/inkubio/nettisnapsi2017
+favicon: 📰
 ---
 
 The student association (a.k.a guild) for bioinformation technology in

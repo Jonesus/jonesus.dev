@@ -29,6 +29,8 @@
         "editor.wordWrap": "bounded"
     },
     "markdownlint.config": {
-        "MD007": { "indent": 4 }
+        "MD007": { "indent": 4 },
+        "MD025": false,
+        "MD026": { "punctuation": ".,;:。，；：" }
     }
 }

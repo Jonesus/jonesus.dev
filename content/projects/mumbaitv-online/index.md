@@ -1,11 +1,15 @@
 ---
 title: mumbaitv.online
+description:
+    Website for subtitling, sharing and viewing video clips from bollywood
+    classics
 startYear: 2019
 cover: screenshot.jpeg
 coverAlt:
     Home page of mumbaitv.online, showing a list of bollywood films for the
     users to subtitle
 githubLink: https://github.com/Jonesus/mumbaitv/
+favicon: 📺
 ---
 
 There was a time when the best content on the internet wasn't engineered around

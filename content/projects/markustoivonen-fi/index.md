@@ -1,6 +1,12 @@
 ---
 title: markustoivonen.fi
+description: Photography portfolio website for a friend's freelancing business
 startYear: 2021
+cover: screenshot.png
+coverAlt:
+    Home page of markustoivonen.fi, showing hand-picked highlights from Markus'
+    galleries.
+favicon: 📸
 ---
 
 - background
@@ -17,6 +23,10 @@ startYear: 2021
 - learnings
     - optimizing semi-static content
     - minimizing ongoing costs
+
+I had long been trying to create a personal website, but that had never come to
+fruition due to scope creeps, premature optimizations, procrastination and other
+similar novel problems.
 
 With all the staying home due to COVID-19, I wanted to work on some projects
 that I'd been procrastinating on for a long time, such as a personal website.

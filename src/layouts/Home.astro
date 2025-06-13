@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "./BaseLayout.astro";
+import me from "~src/assets/me.jpeg";
+---
+
+<Layout favicon="👋🏻">
+    <slot />
+
+    <Image
+        src={me}
+        alt="Me, Joonas, smiling at a photoshoot with the flag of the guild of Inkubio on the background"
+        loading="eager"
+    />
+</Layout>
+
+<style>
+    :global(main) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        grid-auto-rows: min-content;
+    }
+    :global(main > *) {
+        grid-column: 1;
+    }
+    img {
+        grid-column: 2;
+        grid-row: 1 / 4;
+    }
+
+    @media (width <= 600px) {
+        :global(main) {
+            grid-template-columns: 1fr;
+        }
+        img {
+            grid-column: 1;
+            max-height: 300px;
+            object-fit: cover;
+            object-position: 0 10%;
+        }
+    }
+</style>

@@ -1,22 +1,28 @@
 ---
-import {getCollection, render} from "astro:content";
-import Layout from "~src/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import BaseLayout from "~src/layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
     return projects.map((project) => ({
-        params: {slug: project.id},
-        props: {project: project},
+        params: { slug: project.id },
+        props: { project: project },
     }));
 }
 
-const {project} = Astro.props;
-const {Content} = await render(project);
+const { project } = Astro.props;
+const { Content } = await render(project);
 ---
 
-<Layout>
+<BaseLayout title={project.data.title} favicon={project.data.favicon}>
     <article>
         <h1>{project.data.title}</h1>
+        {
+            project.data.cover ? (
+                <Image src={project.data.cover} alt={project.data.coverAlt} />
+            ) : null
+        }
         <Content />
     </article>
-</Layout>
+</BaseLayout>

@@ -1,6 +1,14 @@
 ---
 title: inkubio.fi
+description:
+    Website for the guild of bioinformation technology in Aalto University
 startYear: 2017
+githubLink: https://github.com/inkubio/suur-inkubio
+cover: screenshot.png
+coverAlt:
+    The old inkubio.fi front page, with a circuit board with its traces animated
+    to move towards the center.
+favicon: 🐮
 ---
 
 - background

@@ -1,11 +1,15 @@
 ---
 title: Prodeko Community
+description:
+    Online multimedia platform for blogs, podcasts and videos for the guild of
+    industrian engineering and management, Prodeko
 startYear: 2021
 cover: screenshot.png
 coverAlt:
     Front page of Prodeko Community website, with a logo banner and highlighted
     videos visible.
 githubLink: https://github.com/Prodeko/prodeko-community
+favicon: 🌈
 ---
 
 In the spring of 2021, a friend of mine was volunteering for the annual ball

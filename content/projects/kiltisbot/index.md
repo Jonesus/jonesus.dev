@@ -1,7 +1,13 @@
 ---
 title: Kiltisbot
+description: Telegram bot for accessing a guild room webcam and message quotes
 startYear: 2015
 githubLink: https://github.com/inkubio/kiltisbot
+cover: screenshot.png
+coverAlt:
+    Screenshot of a chat with Kiltisbot, with the message "/stalk" being
+    answered to by the bot with a picture of the guild room.
+favicon: 📹
 ---
 
 Since 2014, when I began studying bioinformation technology at Aalto University,
