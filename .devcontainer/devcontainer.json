@@ -1,38 +1,38 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-  "name": "Node.js & TypeScript",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
-  "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_aliases,target=/home/vscode/.bash_aliases,readonly,type=bind"
-  ],
+    "name": "Node.js & TypeScript",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+    "mounts": [
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_aliases,target=/home/node/.bash_aliases,readonly,type=bind"
+    ],
 
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  "features": {
-    "ghcr.io/va-h/devcontainers-features/difftastic:1": {}
-  },
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        "ghcr.io/va-h/devcontainers-features/difftastic:1": {}
+    },
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
 
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "yarn install",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "yarn install",
 
-  // Configure tool-specific properties.
-  "customizations": {
-    "vscode": {
-      // Add the IDs of extensions you want installed when the container is created.
-      "extensions": [
-        "usernamehw.errorlens",
-        "eamodio.gitlens",
-        "dbaeumer.vscode-eslint",
-        "astro-build.astro-vscode",
-        "DavidAnson.vscode-markdownlint"
-      ]
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "usernamehw.errorlens",
+                "eamodio.gitlens",
+                "dbaeumer.vscode-eslint",
+                "astro-build.astro-vscode",
+                "DavidAnson.vscode-markdownlint"
+            ]
+        }
     }
-  }
 
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
 }

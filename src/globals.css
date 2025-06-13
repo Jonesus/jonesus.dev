@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    line-height: 1.5;
+    line-height: 1.4;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -211,4 +211,16 @@ html {
     background: var(--background-color);
     color: var(--text-color);
     scrollbar-gutter: stable;
+}
+
+main h1 {
+    margin-block-end: 1rem;
+}
+
+main>p {
+    margin-block-end: 1rem;
+}
+
+main>p:last-of-type {
+    margin-block-end: 3rem;
 }

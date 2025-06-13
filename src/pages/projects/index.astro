@@ -50,14 +50,6 @@ const projectsByYear = Object.entries(
 </BaseLayout>
 
 <style>
-    h1 {
-        margin-block-end: 1rem;
-    }
-
-    h1 + p {
-        margin-block-end: 3rem;
-    }
-
     section {
         --timeline-gap: max(var(--body-gap), 1rem);
         display: grid;
@@ -134,10 +126,6 @@ const projectsByYear = Object.entries(
         border: var(--line-width) solid var(--text-color);
         border-width: 2px;
         background-color: var(--background-color);
-    }
-
-    p {
-        line-height: 1.2;
     }
 
     @media (width <=600px) {

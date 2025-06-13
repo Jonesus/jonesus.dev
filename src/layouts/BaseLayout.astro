@@ -9,9 +9,14 @@ import linkedin from "~src/assets/logos/linkedin.svg";
 interface Props {
     title?: string | undefined;
     favicon?: string | undefined;
+    frontmatter?: {
+        favicon?: string;
+    };
 }
 
-const { favicon = "🧑‍💻", title } = Astro.props;
+const { favicon, title, frontmatter } = Astro.props;
+
+const currentFavicon = favicon ?? frontmatter?.favicon ?? "🧑‍💻";
 const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
 ---
 
@@ -22,7 +27,7 @@ const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
         <meta name="viewport" content="width=device-width" />
         <link
             rel="icon"
-            href=`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>${favicon}</text></svg>`
+            href=`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>${currentFavicon}</text></svg>`
         />
         <meta name="generator" content={Astro.generator} />
         <title>{fullTitle}</title>
@@ -34,6 +39,7 @@ const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
             <ul>
                 <li><a href="/projects">Projects</a></li>
                 <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
 
@@ -87,10 +93,12 @@ const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
     li {
         list-style: none;
         padding-inline-start: unset;
+        line-height: 1;
     }
 
     footer {
         display: flex;
+        align-items: center;
         gap: 2em;
     }
     footer a img {
@@ -101,8 +109,14 @@ const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
     }
 
     @media (width <=600px) {
+        nav a {
+            font-size: 1rem;
+        }
         ul {
             gap: 1em;
+        }
+        footer p {
+            font-size: 1rem;
         }
     }
 </style>
