@@ -106,11 +106,12 @@ h4,
 h5,
 h6 {
     font-weight: 700;
+    word-break: break-word;
 }
 
 h1 {
     font-size: 4rem;
-    line-height: 1;
+    line-height: 0.8;
 }
 
 article {
@@ -196,6 +197,10 @@ body>* {
     :root {
         --body-padding: 1rem;
         --body-gap: 1rem;
+    }
+
+    h1 {
+        font-size: 3rem;
     }
 }
 

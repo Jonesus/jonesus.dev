@@ -1,5 +1,5 @@
 ---
-title: markustoivonen.fi
+title: markus​toivonen.fi
 description: Photography portfolio website for a friend's freelancing business
 startYear: 2021
 cover: screenshot.png
