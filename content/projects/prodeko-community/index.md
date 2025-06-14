@@ -18,7 +18,7 @@ and Management's (IEM) student guild [Prodeko](https://prodeko.org/). The guild
 has a tradition of hosting a seminar for students and alumni alike on the same
 week as the ball, and this year they got an idea for a web platform that would
 facilitate the event with talks, blogs, podcasts and discussions. The friend had
-seen me develop our guild's website and other small projects (such as Kiltisbot)
+seen me develop [our guild's website](/projects/inkubio-fi) and other small projects (such as [Kiltisbot](/projects/kiltisbot))
 and knew of my related work experience, so they asked me if I was available for
 contracting such a platform.
 
