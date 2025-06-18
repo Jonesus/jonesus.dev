@@ -28,7 +28,8 @@
                 "eamodio.gitlens",
                 "dbaeumer.vscode-eslint",
                 "astro-build.astro-vscode",
-                "DavidAnson.vscode-markdownlint"
+                "DavidAnson.vscode-markdownlint",
+                "esbenp.prettier-vscode"
             ]
         }
     }
