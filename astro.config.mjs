@@ -4,6 +4,8 @@ import { defineConfig } from "astro/config";
 // @ts-ignore
 import rehypeFigureTitle from "rehype-figure-title";
 
+import { viteStaticCopy } from "vite-plugin-static-copy";
+
 // https://astro.build/config
 export default defineConfig({
     site: "https://jonesus.dev",
@@ -12,5 +14,15 @@ export default defineConfig({
     },
     vite: {
         assetsInclude: ["**/*.webm"],
+        plugins: [
+            viteStaticCopy({
+                targets: [
+                    {
+                        src: "content/projects/**/*.webm",
+                        dest: "videos",
+                    },
+                ],
+            }),
+        ],
     },
 });

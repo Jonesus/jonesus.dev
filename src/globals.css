@@ -129,11 +129,8 @@ img {
     border: var(--line-width) solid var(--text-color);
 }
 
-img+figcaption {
-    margin-block-start: 0.5em;
-}
-
 figcaption {
+    margin-block-start: 0.5em;
     font-style: italic;
     text-align: center;
     text-wrap-style: balance;

@@ -11,28 +11,6 @@ coverAlt:
 favicon: 🐮
 ---
 
-- background
-
-    - first proper webdev project
-    - target demographics for new and existing students
-    - team of volunteers
-    - easy admin for future volunteers
-    - internationalization
-
-- process
-
-    - sharpening goals
-    - initial designs
-    - technical exploration
-    - technical implementation
-    - rewriting content
-
-- learnings
-    - hard to lead volunteers
-    - wordpress dev envs
-    - platform lock
-    - content vs theme
-
 In Aalto University, students from different technical majors organize in
 associations – guilds – and the association I considered home is Inkubio.
 Everything works via volunteering, including hosting a website about the guild,
@@ -125,7 +103,17 @@ last changes getting pushed to the production server just one hour before
 midnight on the new year's eve, we managed to accomplish our own goal of having
 the new site up and running before the year's end :)
 
-## Aftermath
+<figure>
+    <video
+        src="/videos/circuit.webm" autoplay muted loop
+        aria-label="Inkubio.fi home page background animation, showing a green circuit board with balls of light tracing the contact surfaces across the board."
+    ></video>
+    <figcaption>
+        Front pages need a little oomph, and this time I tried my hand at some animations for some change from the constant coding.
+    </figcaption>
+</figure>
+
+## Epilogue
 
 The initial version of the website that got published was well received by the
 community, with multiple people helping correct tiny mistakes all around the
