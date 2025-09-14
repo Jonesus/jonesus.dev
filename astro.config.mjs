@@ -11,6 +11,9 @@ export default defineConfig({
     site: "https://jonesus.dev",
     markdown: {
         rehypePlugins: [rehypeFigureTitle],
+        shikiConfig: {
+            theme: "github-light",
+        },
     },
     image: {
         service: { entrypoint: "src/lqipImageService" },

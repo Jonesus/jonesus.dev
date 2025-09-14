@@ -2,6 +2,7 @@
 title: Hello world!
 description: The first post on my blog
 slug: hello-world
+published: 2025-06-13
 ---
 
 I don't particularly enjoy writing. Ever since the essays of primary school,

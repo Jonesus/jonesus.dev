@@ -7,7 +7,9 @@ const blog = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string(),
+        favicon: z.string().optional(),
         slug: z.string(),
+        published: z.date(),
     }),
 });
 const projects = defineCollection({

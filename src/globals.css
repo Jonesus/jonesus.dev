@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    line-height: 1.4;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -81,7 +81,9 @@ h6 {
 }
 
 p,
-li {
+li,
+table,
+summary {
     font-size: 1.25rem;
 }
 
@@ -104,7 +106,7 @@ article {
     margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: var(--paragraph-gap);
 }
 
 article h2 {
@@ -124,9 +126,26 @@ figcaption {
 
 code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.85em;
     background-color: var(--code-background-color);
     padding-inline: 0.25em;
-    padding-block: 0.1em;
+    padding-block-start: 0.3em;
+    padding-block-end: 0.1em;
+}
+
+pre.astro-code {
+    background-color: var(--code-background-color) !important;
+    font-size: 1.25rem;
+    line-height: 1.2;
+
+    padding-inline: 0.5em;
+    padding-block: 0.25em;
+    padding-block-end: 0.4em;
+}
+
+pre.astro-code code {
+    padding-inline: unset;
+    padding-block: unset;
 }
 
 hr {
@@ -144,7 +163,7 @@ body {
     padding-block: var(--body-padding);
     display: grid;
     grid-template-columns:
-        minmax(var(--body-padding), 1fr) minmax(auto, 70ch) minmax(var(--body-padding), 1fr);
+        minmax(var(--body-padding), 1fr) minmax(0, 70ch) minmax(var(--body-padding), 1fr);
     grid-template-rows: auto auto 1fr auto auto;
     gap: var(--body-gap);
 }
@@ -166,6 +185,7 @@ body>* {
     --body-padding: 3rem;
     --body-gap: 3rem;
     --line-width: 2px;
+    --paragraph-gap: 1.5em;
 }
 
 @media (width <=900px) {
@@ -211,4 +231,35 @@ main>p {
 
 main>p:last-of-type {
     margin-block-end: 3rem;
+}
+
+summary:hover {
+    cursor: pointer;
+}
+
+details {
+    border-inline-start: var(--line-width) solid var(--text-color);
+    padding-inline-start: var(--paragraph-gap);
+}
+
+details>*+* {
+    margin-block-start: var(--paragraph-gap)
+}
+
+/* ------------ */
+/* Table styles */
+/* ------------ */
+
+table {
+    border-collapse: collapse
+}
+
+th {
+    text-align: left;
+    border-bottom: var(--line-width) solid var(--text-color);
+}
+
+th,
+td {
+    padding-block: 0.25em;
 }

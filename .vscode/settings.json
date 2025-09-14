@@ -32,6 +32,14 @@
         "MD007": { "indent": 4 },
         "MD025": false,
         "MD026": { "punctuation": ".,;:。，；：" },
-        "MD033": { "allowed_elements": ["video", "figure", "figcaption"] }
+        "MD033": {
+            "allowed_elements": [
+                "video",
+                "figure",
+                "figcaption",
+                "details",
+                "summary"
+            ]
+        }
     }
 }

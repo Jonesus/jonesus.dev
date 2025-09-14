@@ -12,11 +12,16 @@ const posts = await getCollection("blog");
     </p>
     <ul>
         {
-            posts.map((post) => (
-                <li>
-                    <a href={`/blog/${post.id}`}>{post.data.title}</a>
-                </li>
-            ))
+            posts
+                .sort(
+                    (a, b) =>
+                        b.data.published.getTime() - a.data.published.getTime()
+                )
+                .map((post) => (
+                    <li>
+                        <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                    </li>
+                ))
         }
     </ul>
 </BaseLayout>
