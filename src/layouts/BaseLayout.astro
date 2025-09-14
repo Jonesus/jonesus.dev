@@ -64,6 +64,50 @@ const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
 
             <p><em>Cookies are for monsters</em></p>
         </footer>
+
+        <script is:inline>
+            function placeholder() {
+                // for every <img data-lqip="data:..."> it sets the LQIP as a background image,
+                // blurs it visually and removes it once the real image has fully loaded.
+                const imgs = document.querySelectorAll("img[data-lqip]");
+                imgs.forEach((img) => {
+                    const lqip = img.getAttribute("data-lqip");
+                    if (!lqip) return;
+
+                    const wrapper = document.createElement("span");
+                    wrapper.classList.add("lqip", "blur");
+                    wrapper.style.paddingBottom = img.style.marginBottom;
+                    img.parentNode.insertBefore(wrapper, img);
+                    wrapper.appendChild(img);
+
+                    // apply wrapper styles via inline style for immediate effect
+                    img.classList.add("lqip");
+                    img.style.backgroundImage = `url("${lqip}")`;
+
+                    function removePlaceholder() {
+                        wrapper.classList.remove("blur");
+                        // remove background after a short delay to allow transition to finish
+                        setTimeout(() => {
+                            img.style.backgroundImage = "";
+                            img.classList.remove("lqip");
+                            wrapper.replaceWith(img);
+                        }, 250);
+                    }
+
+                    if (img.complete && img.naturalWidth !== 0) {
+                        // image already loaded (cache); remove placeholder immediately
+                        removePlaceholder();
+                    } else {
+                        img.addEventListener("load", removePlaceholder, {
+                            once: true,
+                        });
+                        img.addEventListener("error", () => {}, { once: true });
+                    }
+                });
+            }
+            placeholder();
+            document.addEventListener("astro:after-swap", placeholder);
+        </script>
     </body>
 </html>
 
@@ -106,6 +150,29 @@ const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
     }
     footer p {
         margin-left: auto;
+    }
+
+    :global(img.lqip) {
+        color: transparent;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    :global(span.lqip) {
+        display: block;
+        position: relative;
+        height: fit-content;
+        overflow: hidden;
+    }
+    :global(span.lqip:after) {
+        content: "";
+        position: absolute;
+        inset: var(--line-width);
+        transition: backdrop-filter 300ms ease;
+        backdrop-filter: blur(20px) opacity(0);
+    }
+    :global(span.lqip.blur:after) {
+        backdrop-filter: blur(20px) opacity(1);
     }
 
     @media (width <=600px) {

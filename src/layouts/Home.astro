@@ -26,7 +26,8 @@ import me from "~src/assets/me.jpeg";
     :global(main > *) {
         grid-column: 1;
     }
-    img {
+    :global(main > img),
+    :global(main > span.lqip) {
         grid-column: 2;
         grid-row: 1 / 4;
         margin-bottom: 1rem;
@@ -36,11 +37,13 @@ import me from "~src/assets/me.jpeg";
         :global(main) {
             grid-template-columns: 1fr;
         }
-        img {
+        :global(main img),
+        :global(main > span.lqip) {
             grid-column: 1;
             max-height: 300px;
             object-fit: cover;
             object-position: 0 10%;
+            background-position: 0 10% !important;
         }
     }
 </style>

@@ -13,6 +13,7 @@ export default defineConfig({
         rehypePlugins: [rehypeFigureTitle],
     },
     image: {
+        service: { entrypoint: "src/lqipImageService" },
         responsiveStyles: true,
         layout: "full-width",
     },
