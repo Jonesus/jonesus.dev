@@ -27,7 +27,7 @@ const projectsByYear = Object.entries(
             .sort(([a, _a], [b, _b]) => Number(b) - Number(a))
             .map(([year, projects]) => (
                 <section>
-                    <h2>{year}</h2>
+                    <h2>{year.split(".")[0]}</h2>
                     <hr />
                     <ul>
                         {projects?.map((project, i) => (

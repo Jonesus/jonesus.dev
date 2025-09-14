@@ -3,7 +3,7 @@ title: Prodeko Community
 description:
     Online multimedia platform for blogs, podcasts and videos for the guild of
     industrian engineering and management, Prodeko
-startYear: 2021
+startYear: 2021.2
 cover: screenshot.png
 coverAlt:
     Front page of Prodeko Community website, with a logo banner and highlighted
@@ -18,9 +18,9 @@ and Management's (IEM) student guild [Prodeko](https://prodeko.org/). The guild
 has a tradition of hosting a seminar for students and alumni alike on the same
 week as the ball, and this year they got an idea for a web platform that would
 facilitate the event with talks, blogs, podcasts and discussions. The friend had
-seen me develop [our guild's website](/projects/inkubio-fi) and other small projects (such as [Kiltisbot](/projects/kiltisbot))
-and knew of my related work experience, so they asked me if I was available for
-contracting such a platform.
+seen me develop [our guild's website](/projects/inkubio-fi) and other small
+projects (such as [Kiltisbot](/projects/kiltisbot)) and knew of my related work
+experience, so they asked me if I was available for contracting such a platform.
 
 Naturally I accepted; this presented me with a great opportunity for learning,
 as I had previously only worked as a software consultant/contractor as a part of
@@ -109,10 +109,12 @@ self-drawn design and having thought out what components made sense in Figma
 already made the process a breeze. The most complex feature was handling
 localized URLs (e.g. `/blog/hello-world` for english and `/blogi/hei-maailma`
 for finnish), and I wasn't entirely happy with how the only way to accomplish
-this in Next.js seemed to be semi-custom route handling with a catch-all route,
-but an ugly working solution is better than a beautiful theoretical one.
-Completing the UI well within schedule, I put in the extra effort to add some
-flourish for the users that would "like" a submission on the site.
+this in Next.js seemed to be semi-custom route handling with a catch-all route
+(similarly as I had done previously with
+[markustoivonen.fi](/projects/markustoivonen-fi)), but an ugly working solution
+is better than a beautiful theoretical one. Completing the UI well within
+schedule, I put in the extra effort to add some flourish for the users that
+would "like" a submission on the site.
 
 ![Animated gif of a user pressing the "rainbow-like" button, after which the initially grayscale rainbow emoji bursts outwards with colorful sparks and the rainbow itself gains its colors.](rainbow-like.webp "The only thing more satisfying than programming these micro-interactions is using them afterwards :)")
 
