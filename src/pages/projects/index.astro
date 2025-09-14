@@ -8,7 +8,7 @@ import { groupBy } from "~src/utils";
 const projects = await getCollection("projects");
 const projectsData = projects.filter((p) => !!p.data.cover);
 const projectsByYear = Object.entries(
-    groupBy(projectsData, (p) => p.data.startYear),
+    groupBy(projectsData, (p) => p.data.startYear)
 );
 ---
 
@@ -40,7 +40,7 @@ const projectsByYear = Object.entries(
                                             src={project.data.cover}
                                             alt={project.data.coverAlt}
                                             loading={i < 3 ? "eager" : "lazy"}
-                                            width="1200"
+                                            sizes="(max-width: 600px) 100vw, 500px"
                                         />
                                     ) : null}
                                 </a>

@@ -12,6 +12,10 @@ export default defineConfig({
     markdown: {
         rehypePlugins: [rehypeFigureTitle],
     },
+    image: {
+        responsiveStyles: true,
+        layout: "full-width",
+    },
     vite: {
         assetsInclude: ["**/*.webm"],
         plugins: [

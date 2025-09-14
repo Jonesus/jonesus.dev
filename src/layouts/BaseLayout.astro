@@ -1,10 +1,9 @@
 ---
 import "~src/globals.css";
 import { ClientRouter } from "astro:transitions";
-import { Image } from "astro:assets";
 
-import github from "~src/assets/logos/github.svg";
-import linkedin from "~src/assets/logos/linkedin.svg";
+import Github from "~src/assets/logos/github.svg";
+import Linkedin from "~src/assets/logos/linkedin.svg";
 
 interface Props {
     title?: string | undefined;
@@ -53,14 +52,14 @@ const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
 
         <footer>
             <a href="https://github.com/Jonesus" aria-label="My GitHub profile">
-                <Image src={github} alt="" width="32" height="32" />
+                <Github width="32" height="32" />
             </a>
 
             <a
                 href="https://www.linkedin.com/in/joonas-palosuo/"
                 aria-label="My LinkedIn profile"
             >
-                <Image src={linkedin} alt="" width="32" height="32" />
+                <Linkedin width="32" height="32" />
             </a>
 
             <p><em>Cookies are for monsters</em></p>
@@ -101,7 +100,8 @@ const fullTitle = title ? `${title} | jonesus.dev` : "jonesus.dev";
         align-items: center;
         gap: 2em;
     }
-    footer a img {
+    footer a {
+        color: unset;
         border: none;
     }
     footer p {
