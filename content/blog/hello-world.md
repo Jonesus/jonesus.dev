@@ -1,5 +1,6 @@
 ---
 title: Hello world!
+description: The first post on my blog
 slug: hello-world
 ---
 
