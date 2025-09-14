@@ -57,31 +57,17 @@ ul {
 
 @font-face {
     font-family: 'atkinson';
-    src: url('/fonts/atkinsonhyperlegiblenext.woff2') format('woff2');
+    src: url('/atkinson-hyperlegible.woff2') format('woff2');
     font-weight: 200 800;
-    font-style: normal;
+    font-style: normal, italic;
     font-display: swap;
-}
-
-@font-face {
-    font-family: 'atkinson';
-    src: url('/fonts/atkinsonhyperlegiblenext-italic.woff2') format('woff2');
-    font-weight: 200 800;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'atkinson-mono';
-    src: url('/fonts/atkinsonhyperlegiblemono.woff2') format('woff2');
-    font-weight: 200 800;
-    font-style: normal;
-    font-display: swap;
+    font-variation-settings: "wght" 200 800, "ital" 1;
 }
 
 
 body {
     font-family: 'atkinson';
+    font-style: normal;
 }
 
 p,

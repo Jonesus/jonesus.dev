@@ -79,7 +79,6 @@ const currentDescription = description ?? frontmatter?.description;
 
                     const wrapper = document.createElement("span");
                     wrapper.classList.add("lqip", "blur");
-                    wrapper.style.paddingBottom = img.style.marginBottom;
                     img.parentNode.insertBefore(wrapper, img);
                     wrapper.appendChild(img);
 
