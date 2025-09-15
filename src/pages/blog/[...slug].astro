@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
+import { getDateString } from "~src/utils";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -21,6 +22,12 @@ const { Content } = await render(post);
 >
     <article>
         <h1>{post.data.title}</h1>
+        <p class="published">
+            Published
+            <time datetime={getDateString(post.data.published)}>
+                {getDateString(post.data.published)}
+            </time>
+        </p>
         <Content />
     </article>
 </BaseLayout>

@@ -85,6 +85,7 @@ li,
 table,
 summary {
     font-size: 1.25rem;
+    color: var(--text-color);
 }
 
 h1,
@@ -111,6 +112,12 @@ article {
 
 article h2 {
     margin-block-start: 0.5em;
+}
+
+p.published {
+    color: var(--text-dim-color);
+    font-style: italic;
+    font-size: 1rem;
 }
 
 img {
@@ -181,6 +188,7 @@ body>* {
     --background-color: #f2f3ef;
     --code-background-color: #dedad9;
     --text-color: #181c23;
+    --text-dim-color: #373631;
 
     --body-padding: 3rem;
     --body-gap: 3rem;

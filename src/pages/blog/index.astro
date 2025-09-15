@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "~src/layouts/BaseLayout.astro";
+import { getDateString } from "~src/utils";
 const posts = await getCollection("blog");
 ---
 
@@ -19,9 +20,44 @@ const posts = await getCollection("blog");
                 )
                 .map((post) => (
                     <li>
-                        <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                        <a href={`/blog/${post.id}`}>
+                            <h2>{post.data.title}</h2>
+                            <p class="published">
+                                <time
+                                    datetime={getDateString(
+                                        post.data.published
+                                    )}
+                                >
+                                    {getDateString(post.data.published)}
+                                </time>
+                            </p>
+                            <p>{post.data.description}</p>
+                        </a>
                     </li>
                 ))
         }
     </ul>
 </BaseLayout>
+
+<style>
+    ul {
+        padding-inline-start: 0;
+    }
+    li {
+        list-style: none;
+        margin-bottom: var(-);
+    }
+    li + li {
+        margin-top: 2rem;
+    }
+
+    h2 {
+        line-height: 1.2;
+    }
+    a {
+        text-decoration: none;
+    }
+    a > h2 {
+        text-decoration: underline;
+    }
+</style>
