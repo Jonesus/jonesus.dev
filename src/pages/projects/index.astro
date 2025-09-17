@@ -31,25 +31,32 @@ const projectsByYear = Object.entries(
             .sort(([a, _a], [b, _b]) => Number(b) - Number(a))
             .map(([year, projects]) => (
                 <section>
-                    <h2>{year.split(".")[0]}</h2>
+                    <h2>{year}</h2>
                     <hr />
                     <ul>
-                        {projects?.map((project, i) => (
-                            <li>
-                                <a href={`/projects/${project.id}`}>
-                                    <h3>{project.data.title}</h3>
-                                    <p>{project.data.description}</p>
-                                    {project.data.cover ? (
-                                        <Image
-                                            src={project.data.cover}
-                                            alt={project.data.coverAlt}
-                                            loading={i < 3 ? "eager" : "lazy"}
-                                            sizes="(max-width: 600px) 100vw, 500px"
-                                        />
-                                    ) : null}
-                                </a>
-                            </li>
-                        ))}
+                        {projects
+                            ?.sort(
+                                (a, b) =>
+                                    (b.data.order ?? 0) - (a.data.order ?? 0)
+                            )
+                            .map((project, i) => (
+                                <li>
+                                    <a href={`/projects/${project.id}`}>
+                                        <h3>{project.data.title}</h3>
+                                        <p>{project.data.description}</p>
+                                        {project.data.cover ? (
+                                            <Image
+                                                src={project.data.cover}
+                                                alt={project.data.coverAlt}
+                                                loading={
+                                                    i < 3 ? "eager" : "lazy"
+                                                }
+                                                sizes="(max-width: 600px) 100vw, 500px"
+                                            />
+                                        ) : null}
+                                    </a>
+                                </li>
+                            ))}
                     </ul>
                 </section>
             ))

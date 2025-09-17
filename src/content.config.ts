@@ -21,6 +21,7 @@ const projects = defineCollection({
             startYear: z.number(),
             slug: z.string().optional(),
             favicon: z.string().optional(),
+            order: z.number().optional(),
 
             cover: image().optional(),
             coverAlt: z.string().optional(),
