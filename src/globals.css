@@ -100,7 +100,7 @@ h6 {
 
 h1 {
     font-size: 4rem;
-    line-height: 0.8;
+    line-height: 1;
 }
 
 article {
@@ -129,6 +129,16 @@ figcaption {
     font-style: italic;
     text-align: center;
     text-wrap-style: balance;
+}
+
+blockquote {
+    font-style: italic;
+    padding-inline-start: var(--paragraph-gap);
+    border-left: solid var(--line-width) currentColor;
+}
+
+blockquote>* {
+    color: var(--text-dim-color);
 }
 
 code {
